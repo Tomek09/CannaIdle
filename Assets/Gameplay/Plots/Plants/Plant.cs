@@ -18,44 +18,45 @@ namespace Gameplay.Plots.Plants {
 		public void Initialize(PlotTile tile) {
 			_tile = tile;
 			_preset = null;
-			RefreshShadow();
+
+			_plantSprite.sprite = null;
+			_shadowSprite.sprite = null;
 		}
+
 
 		public void SetPlant(PlantPreset preset, int growthIndex, float duration) {
 			if (preset == null) return;
 
 			_preset = preset;
-			RefreshShadow();
 			SetPlantData(growthIndex, duration);
 
 			Game.GameManager.OnGameTick += OnGameTick;
 		}
 
 		public void SetPlantData(int growthIndex, float duration) {
-			Plants.GrowthStage growthStage = _preset.GetGrowthStage(growthIndex);
+			GrowthStage growthStage = _preset.GetGrowthStage(growthIndex);
 			_growthIndex = growthIndex;
 			_duration = duration;
 			_target = growthStage.duration;
-			_plantSprite.sprite = growthStage.icon;
 			_isFullyGrowth = _preset.IsFullyGrowth(growthIndex);
+
+			_plantSprite.sprite = growthStage.icon;
+			_shadowSprite.sprite = growthStage.icon;
 		}
 
 		public void RemovePlant() {
 			_preset = null;
 			_plantSprite.sprite = null;
-			RefreshShadow();
+			_shadowSprite.sprite = null;
 
 			Game.GameManager.OnGameTick -= OnGameTick;
 		}
 
-		private void RefreshShadow() {
-			_shadowSprite.enabled = _preset != null;
-		}
 
 		private void OnGameTick() {
 			if (_isFullyGrowth) return;
 
-			_duration += 1f;
+			_duration += Time.deltaTime;
 			if (_duration >= _target) {
 				GrowthUp();
 			}
@@ -65,5 +66,8 @@ namespace Gameplay.Plots.Plants {
 			if (_isFullyGrowth) return;
 			SetPlantData(_growthIndex + 1, 0f);
 		}
+
+
+		public PlantPreset GetPlantPreset() => _preset;
 	}
 }

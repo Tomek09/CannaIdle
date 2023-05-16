@@ -4,6 +4,8 @@ using UnityEngine;
 namespace Gameplay.Plots {
 	public class Plot : MonoBehaviour {
 
+		private readonly Vector3 MOUSE_OFFSET = new Vector3(.5f, 0f, .5f);
+
 		[Header("Components")]
 		[SerializeField] private PlotSize _size = null;
 
@@ -27,8 +29,6 @@ namespace Gameplay.Plots {
 
 		private void Start() {
 			Initialize();
-
-			_tiles.Get(0, 0).Plant.SetPlant(_preset, 0, 0);
 		}
 
 		public void Initialize() {
@@ -42,10 +42,14 @@ namespace Gameplay.Plots {
 		}
 
 		private void OnMouseButtonDown(Vector3 worldPosition) {
-			PlotTile tile = _tiles.Get(worldPosition);
+			PlotTile tile = _tiles.Get(worldPosition + MOUSE_OFFSET);
 			if (tile == null) return;
+			if (tile.Plant.GetPlantPreset() != null) {
+				tile.Plant.RemovePlant();
+			} else {
+				tile.Plant.SetPlant(_preset, 0, 0);
 
-			Debug.Log("A");
+			}
 		}
 	}
 }

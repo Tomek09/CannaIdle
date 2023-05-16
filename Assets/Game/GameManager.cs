@@ -7,10 +7,11 @@ namespace Game {
 
 		[Header("Ticks")]
 		private float _nextTick;
-		private float _tickDuration = 1f;
+		private float _tickDuration;
 
 		private void Start() {
 			// TODO > Wyci¹gnaæ to do osobnego skryptu GameTick
+			_tickDuration = Time.deltaTime;
 			_nextTick = Time.time + _tickDuration;
 		}
 
