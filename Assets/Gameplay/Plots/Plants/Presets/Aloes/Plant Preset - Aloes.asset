@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91c82dc5c613f842a633427c5c93987, type: 3}
+  m_Name: Plant Preset - Aloes
+  m_EditorClassIdentifier: 
+  plantCode: plant_aloes
+  growthStages:
+  - icon: {fileID: 21300000, guid: c3a98b0171adc3b48b1384fd87901bbd, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 4bb918235f671b84e8aa7c6b7cbd2eeb, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: d83e251d02ac00b4b82ab5fe8ce72214, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: ae8cbd2dd2f96d34d8c737536ff966ba, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: d2968119b14f7244ca6bf8452d02fb27, type: 3}
+    duration: 5
