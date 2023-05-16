@@ -58,5 +58,14 @@ namespace Tools {
 
 			return tArray.GetRandom();
 		}
+
+
+		public static Vector3 GridCenter(int width, int height, float tileSize, Vector3 origin) {
+			float sizeWidth = (width * tileSize) / 2;
+			float sizeHeight = (height * tileSize) / 2;
+			float halfTile = tileSize / 2;
+
+			return new Vector3(-sizeWidth + halfTile, 0f, -sizeHeight + halfTile) + origin;
+		}
 	}
 }

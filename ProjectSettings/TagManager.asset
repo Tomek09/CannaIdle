@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Patches
+    uniqueID: 529736309
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Plants
+    uniqueID: 2863995965
     locked: 0
