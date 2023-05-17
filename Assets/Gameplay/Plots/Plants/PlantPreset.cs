@@ -4,7 +4,7 @@ namespace Gameplay.Plots.Plants {
 	[CreateAssetMenu(fileName = "Plant Preset - ", menuName = "SO/Plants/Plant Preset")]
 	public class PlantPreset : ScriptableObject {
 
-		public string plantCode;
+		public string plantCode = "plant_";
 		public GrowthStage[] growthStages = null;
 
 		public GrowthStage GetGrowthStage(int stageIndex) {

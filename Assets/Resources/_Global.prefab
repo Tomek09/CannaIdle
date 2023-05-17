@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 4514189778214110822}
   - component: {fileID: 6495498658700871422}
   m_Layer: 5
-  m_Name: Left Bar
+  m_Name: Plants Left Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,6 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7856160829694069416}
   - component: {fileID: 5471077472117697368}
+  - component: {fileID: 3451803587337464010}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -395,6 +396,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dbd9fdb8b3b6424184887f4c6833d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _errorLogger: {fileID: 9140425570969962058}
+--- !u!114 &3451803587337464010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286287440054677873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef13bb451d8b4941b3375ddf0234c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _errorLogger: {fileID: 9140425570969962058}
@@ -816,7 +830,7 @@ GameObject:
   - component: {fileID: 4949868316060486126}
   - component: {fileID: 184900901807694261}
   m_Layer: 5
-  m_Name: Hotbar
+  m_Name: Tools Hotbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1229,6 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enabled: 1
+  _code: 
   _prefix: Database
   _logColor: {r: 0.29803923, g: 0.81960785, b: 0.21568628, a: 1}
 --- !u!1 &5922318372310458590
@@ -1624,6 +1639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enabled: 1
+  _code: 
   _prefix: Error
   _logColor: {r: 0.9098039, g: 0.25490198, b: 0.09411765, a: 1}
 --- !u!1 &8241225574234532291

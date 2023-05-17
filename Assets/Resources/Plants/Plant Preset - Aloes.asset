@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91c82dc5c613f842a633427c5c93987, type: 3}
   m_Name: Plant Preset - Aloes
   m_EditorClassIdentifier: 
-  plantCode: plant_aloes
+  plantCode: plant_aloe
   growthStages:
   - icon: {fileID: 21300000, guid: c3a98b0171adc3b48b1384fd87901bbd, type: 3}
     duration: 5
