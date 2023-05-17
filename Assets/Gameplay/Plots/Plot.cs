@@ -1,5 +1,6 @@
 using Tools;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Gameplay.Plots {
 	public class Plot : MonoBehaviour {
@@ -19,12 +20,16 @@ namespace Gameplay.Plots {
 		[Header("Info")]
 		private Grid<PlotTile> _tiles = null;
 
+		public static System.Action<PlotTile> OnPlotTileMouseDown;
+
 		private void OnEnable() {
 			Game.InputHandler.OnMouseButtonDown += OnMouseButtonDown;
+			OnPlotTileMouseDown += Test;
 		}
 
 		private void OnDisable() {
 			Game.InputHandler.OnMouseButtonDown -= OnMouseButtonDown;
+			OnPlotTileMouseDown -= Test;
 		}
 
 		private void Start() {
@@ -42,13 +47,17 @@ namespace Gameplay.Plots {
 		}
 
 		private void OnMouseButtonDown(Vector3 worldPosition) {
-			PlotTile tile = _tiles.Get(worldPosition + MOUSE_OFFSET);
-			if (tile == null) return;
+			if (!_tiles.TryGet(worldPosition + MOUSE_OFFSET, out PlotTile tile)) return;
+			OnPlotTileMouseDown?.Invoke(tile);
+		}
+
+		private void Test(PlotTile tile) {
+			Debug.Log("Test");
+
 			if (tile.Plant.GetPlantPreset() != null) {
 				tile.Plant.RemovePlant();
 			} else {
 				tile.Plant.SetPlant(_preset, 0, 0);
-
 			}
 		}
 	}

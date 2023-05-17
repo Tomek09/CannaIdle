@@ -52,6 +52,16 @@ namespace Tools {
 			return Get(coord.Item1, coord.Item2);
 		}
 
+		public bool TryGet(int x, int y, out T value) {
+			value = Get(x, y);
+			return value != null;
+		}
+
+		public bool TryGet(Vector3 worldPosition, out T value) {
+			value = Get(worldPosition);
+			return value != null;
+		}
+
 		public List<T> GetNeighour(int x, int y, int depth = 1, bool skipSelf = true) {
 			List<T> neighours = new List<T>();
 			for (int j = -depth; j <= depth; j++) {
