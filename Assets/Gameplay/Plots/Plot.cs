@@ -19,8 +19,11 @@ namespace Gameplay.Plots {
 
 		[Header("Info")]
 		private Grid<PlotTile> _tiles = null;
+		
+		public Grid<PlotTile> TileGrid { get => _tiles; }
 
 		public static System.Action<PlotTile> OnPlotTileMouseDown;
+
 
 		private void OnEnable() {
 			Game.InputHandler.OnMouseButtonDown += OnMouseButtonDown;
@@ -42,9 +45,10 @@ namespace Gameplay.Plots {
 
 		private PlotTile CreateTile(Grid<PlotTile> g, int x, int y) {
 			PlotTile plotTile = GameObjects.GOInstantiate(_tilePrefab, g.GetWorldPosition(x, y), Vector3.zero, _tileParent);
-			plotTile.Initialize();
+			plotTile.Initialize(x, y);
 			return plotTile;
 		}
+
 
 		private void OnMouseButtonDown(Vector3 worldPosition) {
 			if (!_tiles.TryGet(worldPosition + MOUSE_OFFSET, out PlotTile tile)) return;
@@ -60,5 +64,7 @@ namespace Gameplay.Plots {
 				tile.Plant.SetPlant(_preset, 0, 0);
 			}
 		}
+
+		public int TotalTiles() => _tiles.Width * _tiles.Height;
 	}
 }

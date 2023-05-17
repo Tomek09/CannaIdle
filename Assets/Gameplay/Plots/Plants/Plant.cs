@@ -68,6 +68,16 @@ namespace Gameplay.Plots.Plants {
 		}
 
 
+
+		public Game.Save.SavePlotPlant Save() {
+			Debug.Log("TODO");
+			return new Game.Save.SavePlotPlant();
+		}
+
+		public void Load(Game.Save.SavePlotPlant plant) {
+			Debug.Log("TODO");
+		}
+
 		public PlantPreset GetPlantPreset() => _preset;
 	}
 }
