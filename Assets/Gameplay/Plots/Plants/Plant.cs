@@ -75,6 +75,11 @@ namespace Gameplay.Plots.Plants {
 		}
 
 
+		public PlantPreset GetPlantPreset() => _preset;
+
+		public bool IsFullyGrowth() => _isFullyGrowth;
+
+		#region Save/Load
 
 		public Game.Save.SavePlotPlant Save() {
 			Game.Save.SavePlotPlant savePlant = new Game.Save.SavePlotPlant();
@@ -82,7 +87,7 @@ namespace Gameplay.Plots.Plants {
 			if (_preset != null) {
 				savePlant = new Game.Save.SavePlotPlant(_preset.plantCode, _growthIndex, _growthDuration);
 			}
-			
+
 			return savePlant;
 		}
 
@@ -93,8 +98,6 @@ namespace Gameplay.Plots.Plants {
 			SetPlant(plantPreset, plant.growthIndex, plant.growthDuration);
 		}
 
-		public PlantPreset GetPlantPreset() => _preset;
-
-		public bool IsFullyGrowth() => _isFullyGrowth;
+		#endregion
 	}
 }

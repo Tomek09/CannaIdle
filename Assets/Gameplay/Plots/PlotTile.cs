@@ -28,6 +28,7 @@ namespace Gameplay.Plots {
 			_plant.Initialize(this);
 		}
 
+		#region Save/Load
 
 		public Game.Save.SavePlotTile Save() {
 			return new Game.Save.SavePlotTile() {
@@ -42,5 +43,7 @@ namespace Gameplay.Plots {
 			_patch.Load(savePlotTile.patch);
 			_plant.Load(savePlotTile.plant);
 		}
+
+		#endregion
 	}
 }

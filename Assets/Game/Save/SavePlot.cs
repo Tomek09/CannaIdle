@@ -18,7 +18,11 @@ namespace Game.Save {
 
 	[System.Serializable]
 	public class SavePlotPatch {
+		public float wetDuration;
 
+		public SavePlotPatch(float wetDuration) {
+			this.wetDuration = wetDuration;
+		}
 	}
 
 	[System.Serializable]
