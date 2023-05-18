@@ -8,10 +8,6 @@ namespace Gameplay.Inventory {
 		private Dictionary<Items.ItemPreset, InventoryItem> _currentItems = null;
 		private Items.ItemPreset _equipItem = null;
 
-		[Header("Debug")]
-		[SerializeField] private Items.ItemPreset _preset;
-		[SerializeField] private int _quantity;
-
 		public static System.Action<Items.ItemPreset> OnItemEquip;
 		public static System.Action<Items.ItemPreset> OnItemUnequip;
 
@@ -19,17 +15,22 @@ namespace Gameplay.Inventory {
 		public static System.Action<InventoryItem> OnItemQuantityChange;
 		public static System.Action<Items.ItemPreset> OnItemRemove;
 
+		private void OnEnable() {
+			Game.Save.SaveManager.OnGameSave += OnGameSave;
+			Game.Save.SaveManager.OnGameLoad += OnGameLoad;
+		}
+
+		private void OnDisable() {
+			Game.Save.SaveManager.OnGameSave -= OnGameSave;
+			Game.Save.SaveManager.OnGameLoad -= OnGameLoad;
+		}
+
 		private protected override void Awake() {
 			base.Awake();
 			_currentItems = new Dictionary<Items.ItemPreset, InventoryItem>();
 			_equipItem = null;
 		}
 
-		private void Update() {
-			if (Input.GetKeyDown(KeyCode.K)) {
-				AddItem(_preset, _quantity);
-			}
-		}
 
 		public void AddItem(Items.ItemPreset itemPreset, int quantity) {
 			if (!_currentItems.ContainsKey(itemPreset)) {
@@ -79,5 +80,33 @@ namespace Gameplay.Inventory {
 			OnItemUnequip?.Invoke(_equipItem);
 			_equipItem = null;
 		}
+
+
+		#region Save/Load
+
+		private void OnGameSave(Game.Save.GameData gameData) {
+			Game.Save.SaveInventory saveInventory = new Game.Save.SaveInventory() {
+				coins = 0,
+				inventoryItems = new Game.Save.SaveItem[_currentItems.Keys.Count]
+			};
+
+			int index = 0;
+			foreach (KeyValuePair<Items.ItemPreset, InventoryItem> item in _currentItems) {
+				saveInventory.inventoryItems[index] = new Game.Save.SaveItem(item.Value.itemPreset.itemCode, item.Value.quantity);
+				index++;
+			}
+
+			gameData.inventory = saveInventory;
+		}
+
+		private void OnGameLoad(Game.Save.GameData gameData) {
+			foreach (Game.Save.SaveItem item in gameData.inventory.inventoryItems) {
+				if (Items.ItemsManager.instance.TryGetItem(item.itemCode, out Items.ItemPreset itemPreset)) {
+					AddItem(itemPreset, item.quantity);
+				}
+			}
+		}
+
+		#endregion
 	}
 }

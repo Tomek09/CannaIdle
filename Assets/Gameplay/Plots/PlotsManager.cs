@@ -29,6 +29,10 @@ namespace Gameplay.Plots {
 			OnPlotTileMouseDown?.Invoke(tile);
 		}
 
+		private Plot GetPlot(int index) => _plots[index];
+
+		#region Save/Load
+
 		private void OnGameSave(Game.Save.GameData gameData) {
 			Game.Save.SavePlot[] savePlots = new Game.Save.SavePlot[_plots.Length];
 			for (int i = 0; i < _plots.Length; i++) {
@@ -63,8 +67,7 @@ namespace Gameplay.Plots {
 			}
 		}
 
-		private Plot GetPlot(int index) {
-			return _plots[index];
-		}
+		#endregion
+
 	}
 }
