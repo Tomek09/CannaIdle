@@ -166,7 +166,7 @@ public class MeshCombiner : MonoBehaviour
 			meshRenderers[0].sharedMaterials = new Material[0]; // Reset the MeshRenderer's Materials array.
 		}
 
-		// Create Mesh from combineInstances:
+		// Initialize Mesh from combineInstances:
 		Mesh combinedMesh = new Mesh();
 		combinedMesh.name = name;
 
@@ -247,7 +247,7 @@ public class MeshCombiner : MonoBehaviour
 		// If it will be over 65535 then use the 32 bit index buffer:
 		long verticesLength = 0;
 
-		for(int i = 0; i < uniqueMaterialsList.Count; i++) // Create each Mesh (submesh) from Meshes with the same Material.
+		for(int i = 0; i < uniqueMaterialsList.Count; i++) // Initialize each Mesh (submesh) from Meshes with the same Material.
 		{
 			List<CombineInstance> submeshCombineInstancesList = new List<CombineInstance>();
 
@@ -275,7 +275,7 @@ public class MeshCombiner : MonoBehaviour
 				}
 			}
 
-			// Create new Mesh (submesh) from Meshes with the same Material:
+			// Initialize new Mesh (submesh) from Meshes with the same Material:
 			Mesh submesh = new Mesh();
 
 			#if UNITY_2017_3_OR_NEWER

@@ -484,7 +484,6 @@ MonoBehaviour:
   _tilePrefab: {fileID: 5200027649442572134, guid: 4c44cbd14a744bb4a859915b8306a84a,
     type: 3}
   _tileParent: {fileID: 545018682}
-  _preset: {fileID: 11400000, guid: 04e59f3488f782944a09a7bf3e826fba, type: 2}
 --- !u!114 &545018684
 MonoBehaviour:
   m_ObjectHideFlags: 0

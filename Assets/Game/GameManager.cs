@@ -11,15 +11,17 @@ namespace Game {
 
 		private void Start() {
 			// TODO > Wyci¹gnaæ to do osobnego skryptu GameTick
-			_tickDuration = Time.deltaTime;
+			_tickDuration = .0001f;
 			_nextTick = Time.time + _tickDuration;
 		}
 
 		private void Update() {
-			if (Time.time >= _nextTick) {
-				_nextTick = Time.time + _tickDuration;
-				OnGameTick?.Invoke();
-			}
+			OnGameTick?.Invoke();
+
+			//if (Time.time >= _nextTick) {
+			//	_nextTick = Time.time + _tickDuration;
+			//	OnGameTick?.Invoke();
+			//}
 		}
 	}
 }

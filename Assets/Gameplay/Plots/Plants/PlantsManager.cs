@@ -23,5 +23,17 @@ namespace Gameplay.Plots.Plants {
 				_presets.Add(preset.plantCode, preset);
 			}
 		}
+
+		public bool TryGetPlant(string plantCode, out PlantPreset plant) {
+			plant = null;
+
+			if(_presets.ContainsKey(plantCode)) {
+				plant = _presets[plantCode];
+			} else {
+				_errorLogger.Log($"Missing plant preset: {plantCode}");
+			}
+
+			return plant != null;
+		}
 	}
 }

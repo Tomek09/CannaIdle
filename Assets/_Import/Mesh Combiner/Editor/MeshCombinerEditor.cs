@@ -57,11 +57,11 @@ public class MeshCombinerEditor : Editor
 		#endregion Button which combine Meshes into one Mesh & Toggles with combine options.
 
 		#region Path to the folder where combined Meshes will be saved:
-		// Create Labels:
+		// Initialize Labels:
 		GUILayout.Label("");
 		GUILayout.Label(new GUIContent("Folder path:", "Folder path to save combined Mesh."));
 
-		// Create style wherein text color will be red if folder path is not valid:
+		// Initialize style wherein text color will be red if folder path is not valid:
 		style = new GUIStyle(EditorStyles.textField);
 		bool isValidPath = IsValidPath(meshCombiner.FolderPath);
 		if(!isValidPath)
@@ -70,7 +70,7 @@ public class MeshCombinerEditor : Editor
 			style.focused.textColor = Color.red;
 		}
 
-		// Create TextField with custom style:
+		// Initialize TextField with custom style:
 		meshCombiner.FolderPath = EditorGUILayout.TextField(meshCombiner.FolderPath, style);
 		#endregion Path to the folder where combined Meshes will be saved.
 
