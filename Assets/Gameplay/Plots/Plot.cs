@@ -17,10 +17,6 @@ namespace Gameplay.Plots {
 		public Grid<PlotTile> TileGrid { get => _tiles; }
 
 
-		private void Start() {
-			Initialize();
-		}
-
 		public void Initialize() {
 			_tiles = new Grid<PlotTile>(_size.Width, _size.Height, _size.TileSize, _size.Origin, (Grid<PlotTile> g, int x, int y) => CreateTile(g, x, y));
 		}
@@ -30,8 +26,6 @@ namespace Gameplay.Plots {
 			plotTile.Initialize(this, x, y);
 			return plotTile;
 		}
-
-
 
 		public int TotalTiles() => _tiles.Width * _tiles.Height;
 	}

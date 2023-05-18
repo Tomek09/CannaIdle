@@ -24,6 +24,17 @@ namespace Gameplay.Plots {
 			Game.Save.SaveManager.OnGameLoad -= OnGameLoad;
 		}
 
+		private protected override void Awake() {
+			base.Awake();
+			for (int i = 0; i < _plots.Length; i++) {
+				_plots[i].Initialize();
+			}
+		}
+
+		private void Start() {
+			Game.Save.SaveManager.instance.LoadGame();
+		}
+
 		private void OnMouseButtonDown(Vector3 worldPosition) {
 			if (!ActivePlot.TileGrid.TryGet(worldPosition + MOUSE_OFFSET, out PlotTile tile)) return;
 			OnPlotTileMouseDown?.Invoke(tile);
