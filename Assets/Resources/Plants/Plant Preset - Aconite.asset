@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91c82dc5c613f842a633427c5c93987, type: 3}
+  m_Name: Plant Preset - Aconite
+  m_EditorClassIdentifier: 
+  plantCode: plant_aconite
+  growthStages:
+  - icon: {fileID: 21300000, guid: aeac51a411f37c043aa2a9c7c9e6582b, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 2185688a75f330f4987332e19d9d9761, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 45dad48a321cbc043babc6a756b448ef, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: f0badc3c261faa8479d67b533e5148d3, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 53466637d7782294b9d32e1f25f347d7, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 9b97d60b273a4dc409c78e8fac6e3eab, type: 3}
+    duration: 0

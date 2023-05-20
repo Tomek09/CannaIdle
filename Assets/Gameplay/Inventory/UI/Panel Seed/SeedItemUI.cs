@@ -50,11 +50,15 @@ namespace Gameplay.Inventory.UI.Seeds {
 		}
 
 		public void OnItemEquip() {
-			_background.color = Color.blue;
+			SetBackgroundColor(Color.blue);
 		}
 
 		public void OnItemUnequip() {
-			_background.color = Color.white;
+			SetBackgroundColor(Color.white);
+		}
+
+		public void SetBackgroundColor(Color color) {
+			_background.color = color;
 		}
 
 		public InventoryItem GetInventoryItem() => _currentItem;

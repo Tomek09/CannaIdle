@@ -21,9 +21,11 @@ namespace Gameplay.Inventory.UI.Seeds {
 
 		[Header("Info")]
 		private bool _isHidden = true;
-		private int _currentTab = 0;
-		private int _totalTabs = 1;
-		private List<InventoryItem> _items = null;
+		private int _currentTab = 0; 
+		private int _maxTabs = 0;
+		private Items.ItemPreset[] _items = null;
+		private Dictionary<Items.ItemPreset, InventoryItem> _seedsItems = null;
+
 		private Items.ItemPreset _currentEquip = null;
 
 
@@ -31,30 +33,47 @@ namespace Gameplay.Inventory.UI.Seeds {
 			InventoryManager.OnItemEquip += OnItemEquip;
 			InventoryManager.OnItemUnequip += OnItemUnequip;
 
-			InventoryManager.OnItemAdd += OnItemAdd;
 			InventoryManager.OnItemQuantityChange += OnItemQuantityChange;
-			InventoryManager.OnItemRemove += OnItemRemove;
 		}
 
 		private void OnDisable() {
 			InventoryManager.OnItemEquip -= OnItemEquip;
 			InventoryManager.OnItemUnequip -= OnItemUnequip;
 
-			InventoryManager.OnItemAdd -= OnItemAdd;
 			InventoryManager.OnItemQuantityChange -= OnItemQuantityChange;
-			InventoryManager.OnItemRemove -= OnItemRemove;
 		}
 
 		private void Awake() {
-			_items = new List<InventoryItem>();
-
 			_hideButton.onClick.AddListener(OnHideButton);
 			_leftNavArrow.onClick.AddListener(() => OnChangeNavigation(-1));
 			_rightNavArrow.onClick.AddListener(() => OnChangeNavigation(1));
+
+			InitializeUI();
 		}
 
 		private void OnHideButton() {
 			ChangeHide();
+		}
+
+		private void OnChangeNavigation(int dir) {
+			_currentTab = Mathf.Clamp(_currentTab + dir, 0, _maxTabs);
+			RefreshTab();
+		}
+
+		#region UI
+
+		private void InitializeUI() {
+			List<Items.ItemPreset> seedsItems = Items.ItemsManager.instance.GetAllItems(Items.ItemCategory.Seeds);
+			_items = new Items.ItemPreset[seedsItems.Count];
+			_seedsItems = new Dictionary<Items.ItemPreset, InventoryItem>();
+
+			for (int i = 0; i < seedsItems.Count; i++) {
+				Items.ItemPreset itemPreset = seedsItems[i];
+				_items[i] = itemPreset;
+				_seedsItems.Add(itemPreset, new InventoryItem(itemPreset));
+			}
+
+			_maxTabs = Mathf.CeilToInt(seedsItems.Count / TOTAL_ITEMS_PER_TAB);
 		}
 
 		private void ChangeHide() {
@@ -66,28 +85,27 @@ namespace Gameplay.Inventory.UI.Seeds {
 				.SetEase(Ease.OutBack);
 		}
 
-		private void OnChangeNavigation(int dir) {
-			_currentTab = Mathf.Clamp(_currentTab + dir, 0, _totalTabs);
-			RefreshTab();
-		}
-
 		private void RefreshTab() {
 			int startIndex = _currentTab * TOTAL_ITEMS_PER_TAB;
 			for (int i = 0; i < TOTAL_ITEMS_PER_TAB; i++) {
 				int itemIndex = startIndex + i;
-				if (!ContainItem(itemIndex)) {
-					_currentItemUI[i].SetEmpty();
-				} else {
-					_currentItemUI[i].SetItem(_items[itemIndex]);
+				int slotIndex = i;
 
-					_currentItemUI[i].OnItemUnequip();
-					if (_currentEquip != null && Equals(_items[itemIndex].itemPreset, _currentEquip)) {
-						_currentItemUI[i].OnItemEquip();
-					}
+				if(itemIndex >= _items.Length) {
+					_currentItemUI[slotIndex].SetEmpty();
+					continue;
+				}
 
+				_currentItemUI[slotIndex].SetItem(_seedsItems[_items[itemIndex]]);
+				_currentItemUI[slotIndex].OnItemUnequip();
+
+				if(_currentEquip != null && Equals(_currentEquip, _items[itemIndex])) {
+					_currentItemUI[slotIndex].OnItemEquip();
 				}
 			}
 		}
+
+		#endregion
 
 		#region Callbacks
 
@@ -104,39 +122,14 @@ namespace Gameplay.Inventory.UI.Seeds {
 		}
 
 
-		private void OnItemAdd(InventoryItem inventoryItem) {
-			if (inventoryItem.itemPreset.itemCategory != Items.ItemCategory.Seeds) return;
-
-			_items.Add(inventoryItem);
-			RefreshTab();
-		}
-
 		private void OnItemQuantityChange(InventoryItem inventoryItem) {
 			if (inventoryItem.itemPreset.itemCategory != Items.ItemCategory.Seeds) return;
 
-			RefreshTab();
-		}
+			_seedsItems[inventoryItem.itemPreset].quantity = inventoryItem.quantity;
 
-		private void OnItemRemove(Items.ItemPreset itemPreset) {
-			if (itemPreset.itemCategory != Items.ItemCategory.Seeds) return;
-
-			InventoryItem inventoryItem = FindInventoryItem(itemPreset);
-			_items.Remove(inventoryItem);
 			RefreshTab();
 		}
 
 		#endregion
-
-		private bool ContainItem(int index) {
-			return index >= 0 && index < _items.Count;
-		}
-
-		private InventoryItem FindInventoryItem(Items.ItemPreset itemPreset) {
-			for (int i = 0; i < _items.Count; i++) {
-				if (Equals(_items[i].itemPreset, itemPreset))
-					return _items[i];
-			}
-			return null;
-		}
 	}
 }

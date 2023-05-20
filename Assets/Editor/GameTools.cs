@@ -38,15 +38,26 @@ namespace Game {
 
 			List<Gameplay.Items.ItemPreset> allPresets = Gameplay.Items.ItemsManager.instance.GetAllItems();
 
+			GUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
 			for (int i = 0; i < allPresets.Count; i++) {
 				Gameplay.Items.ItemPreset item = allPresets[i];
 				AddItem(item);
+
+				if ((i + 1) % 2 == 0) {
+					GUILayout.FlexibleSpace();
+					GUILayout.EndHorizontal();
+					GUILayout.BeginHorizontal();
+					GUILayout.FlexibleSpace();
+				}
 			}
+			GUILayout.FlexibleSpace();
+			GUILayout.EndHorizontal();
 
 			GUILayout.EndVertical();
 
 			void AddItem(Gameplay.Items.ItemPreset itemPreset) {
-				if (GUILayout.Button(string.Format("{0}", itemPreset.itemCode))) {
+				if (GUILayout.Button(string.Format("{0}", itemPreset.itemCode), GUILayout.ExpandWidth(true), GUILayout.MinWidth((position.width / 2) - 10))) {
 					Gameplay.Inventory.InventoryManager.instance.AddItem(itemPreset, 1);
 				}
 			}

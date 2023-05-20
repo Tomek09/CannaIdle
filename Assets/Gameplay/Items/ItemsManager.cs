@@ -50,5 +50,15 @@ namespace Gameplay.Items {
 		}
 
 		public List<ItemPreset> GetAllItems() => _allPresets;
+
+		public List<ItemPreset> GetAllItems(ItemCategory itemCategory) {
+			List<ItemPreset> items = new List<ItemPreset>();
+			for (int i = 0; i < _allPresets.Count; i++) {
+				if (Equals(_allPresets[i].itemCategory, itemCategory)) {
+					items.Add(_allPresets[i]);
+				}
+			}
+			return items;
+		}
 	}
 }
