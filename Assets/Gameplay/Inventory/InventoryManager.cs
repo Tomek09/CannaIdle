@@ -7,6 +7,7 @@ namespace Gameplay.Inventory {
 		[Header("Info")]
 		private Dictionary<Items.ItemPreset, InventoryItem> _currentItems = null;
 		private Items.ItemPreset _equipItem = null;
+		private int _totalCoins = 0;
 
 		public static System.Action<Items.ItemPreset> OnItemEquip;
 		public static System.Action<Items.ItemPreset> OnItemUnequip;
@@ -88,6 +89,24 @@ namespace Gameplay.Inventory {
 			_equipItem.OnUnequip();
 			OnItemUnequip?.Invoke(_equipItem);
 			_equipItem = null;
+		}
+
+
+		public void AddCoins(int amount) {
+			ModifyCoins(_totalCoins + Mathf.Abs(amount));
+		}
+
+		public void RemoveCoins(int amount) {
+			ModifyCoins(_totalCoins - Mathf.Abs(amount));
+		}
+
+		private void ModifyCoins(int newAmount) {
+			_totalCoins = Mathf.Clamp(newAmount, 0, int.MaxValue);
+		}
+
+
+		public bool ContainsCoins(int total) {
+			return total >= _totalCoins;
 		}
 
 		#region Save/Load
