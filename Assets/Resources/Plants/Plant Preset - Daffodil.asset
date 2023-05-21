@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91c82dc5c613f842a633427c5c93987, type: 3}
+  m_Name: Plant Preset - Daffodil
+  m_EditorClassIdentifier: 
+  plantCode: plant_daffodil
+  growthStages:
+  - icon: {fileID: 21300000, guid: 8715288d7c239c7469a7265b210d2e49, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 16dfff74916c3cd48b8f05b2569cd943, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: f37ec9ac22ac1224fb4bc3d3c62ee8ba, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 25c32cd02064412478eb9ac5bb19fbcc, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: eb1d0561869ef234a8c3d3d549d8ddfe, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: eb1d0561869ef234a8c3d3d549d8ddfe, type: 3}
+    duration: 0

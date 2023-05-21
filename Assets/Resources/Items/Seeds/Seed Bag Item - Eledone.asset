@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
-  m_Name: Seed Bag Item - 1
+  m_Name: Seed Bag Item - Eledone
   m_EditorClassIdentifier: 
-  itemCode: item_
-  icon: {fileID: 0}
+  itemCode: item_eledone
+  icon: {fileID: 21300000, guid: 5e51a25eda7d6734f9bfeeaafe0152a4, type: 3}
   itemCategory: 0
-  plantPreset: {fileID: 0}
+  plantPreset: {fileID: 11400000, guid: 971b0f65632d1f64f8154e0e3499b9a0, type: 2}

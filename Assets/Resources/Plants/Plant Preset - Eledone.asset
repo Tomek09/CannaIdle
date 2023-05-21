@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91c82dc5c613f842a633427c5c93987, type: 3}
+  m_Name: Plant Preset - Eledone
+  m_EditorClassIdentifier: 
+  plantCode: plant_eledone
+  growthStages:
+  - icon: {fileID: 21300000, guid: 094c986b0757ff14297321ca8d0f67ab, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: b880bcd61722e0f4185c38f6933f48ea, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 85eb6244b72aa7e478770f41028dd7c2, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: c267be9f5564a3e45b5550a23ad0c73b, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 9b07d42357727674988344cde566f94c, type: 3}
+    duration: 5
+  - icon: {fileID: 21300000, guid: 9b07d42357727674988344cde566f94c, type: 3}
+    duration: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
-  m_Name: Seed Bag Item - 1
+  m_Name: Seed Bag Item - Hop
   m_EditorClassIdentifier: 
-  itemCode: item_
-  icon: {fileID: 0}
+  itemCode: item_hop
+  icon: {fileID: 21300000, guid: 1247602b916875b49999f1b3bd68cc5f, type: 3}
   itemCategory: 0
-  plantPreset: {fileID: 0}
+  plantPreset: {fileID: 11400000, guid: 7e48da7eacdb6164099dae0e40689b75, type: 2}
