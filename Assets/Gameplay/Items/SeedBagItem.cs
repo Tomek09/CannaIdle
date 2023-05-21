@@ -16,7 +16,9 @@ namespace Gameplay.Items {
 		}
 
 		private void OnPlotTileMouseDown(Plots.PlotTile tile) {
-			if (tile.Plant.GetPlantPreset() != null) return;
+			if (tile.Plant.GetPlantPreset() != null) {
+				return;
+			}
 
 			tile.Plant.SetPlant(plantPreset);
 			Inventory.InventoryManager.instance.RemoveItem(this);

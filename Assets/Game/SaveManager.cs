@@ -28,6 +28,7 @@ namespace Game.Save {
 			OnGameSave?.Invoke(gameData);
 
 			string json = JsonUtility.ToJson(gameData);
+			Debug.Log(json);	
 			PlayerPrefs.SetString(SAVE_NAME, json);
 		}
 

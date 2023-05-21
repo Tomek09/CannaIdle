@@ -73,7 +73,7 @@ namespace Gameplay.Inventory.UI.Seeds {
 				_seedsItems.Add(itemPreset, new InventoryItem(itemPreset));
 			}
 
-			_maxTabs = Mathf.CeilToInt(seedsItems.Count / TOTAL_ITEMS_PER_TAB);
+			_maxTabs = Mathf.CeilToInt(seedsItems.Count / TOTAL_ITEMS_PER_TAB) - 1;
 		}
 
 		private void ChangeHide() {

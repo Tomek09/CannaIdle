@@ -13,8 +13,14 @@ namespace Gameplay.Items {
 		}
 
 		private void OnPlotTileMouseDown(Plots.PlotTile tile) {
-			if (tile.Plant.GetPlantPreset() == null) return;
-			if (!tile.Plant.IsFullyGrowth()) return;
+			if (tile.Plant.GetPlantPreset() == null) {
+				return;
+			}
+
+			if (!tile.Plant.IsFullyGrowth()) {
+				return;
+			}
+
 			tile.Plant.RemovePlant();
 		}
 	}

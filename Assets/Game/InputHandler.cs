@@ -16,7 +16,7 @@ namespace Game {
 		}
 
 		private void Update() {
-			if(Input.GetMouseButtonDown(0)) {
+			if (Input.GetMouseButtonDown(0)) {
 				OnMouseButtonDown?.Invoke(GetMouseWorldPosition());
 			}
 
@@ -30,8 +30,9 @@ namespace Game {
 		}
 
 		private Vector3 GetMouseWorldPosition() {
-			if(_mainCamera == null) 
+			if (_mainCamera == null) {
 				_mainCamera = Camera.main;
+			}
 
 			Plane plane = new Plane(Vector3.up, Vector3.zero);
 			Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);

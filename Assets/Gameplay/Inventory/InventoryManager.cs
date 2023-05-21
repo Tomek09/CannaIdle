@@ -15,6 +15,7 @@ namespace Gameplay.Inventory {
 		public static System.Action<InventoryItem> OnItemQuantityChange;
 		public static System.Action<Items.ItemPreset> OnItemRemove;
 
+
 		private void OnEnable() {
 			Game.Save.SaveManager.OnGameSave += OnGameSave;
 			Game.Save.SaveManager.OnGameLoad += OnGameLoad;
@@ -43,12 +44,16 @@ namespace Gameplay.Inventory {
 		}
 
 		public void RemoveItem(Items.ItemPreset item, int quantity = 1) {
-			if (!_currentItems.ContainsKey(item)) return;
+			if (!_currentItems.ContainsKey(item)) {
+				return;
+			}
 
 			_currentItems[item].quantity -= quantity;
 			OnItemQuantityChange?.Invoke(_currentItems[item]);
 
-			if (_currentItems[item].quantity > 0) return;
+			if (_currentItems[item].quantity > 0) {
+				return;
+			}
 
 			if (_equipItem != null && _equipItem == item) {
 				Unequip();
@@ -59,7 +64,9 @@ namespace Gameplay.Inventory {
 		}
 
 		public void Equip(Items.ItemPreset itemPreset) {
-			if (!_currentItems.ContainsKey(itemPreset)) return;
+			if (!_currentItems.ContainsKey(itemPreset)) {
+				return;
+			}
 
 			if (_equipItem != null && _equipItem == itemPreset) {
 				Unequip();
@@ -74,13 +81,14 @@ namespace Gameplay.Inventory {
 		}
 
 		public void Unequip() {
-			if (_equipItem == null) return;
+			if (_equipItem == null) {
+				return;
+			}
 
 			_equipItem.OnUnequip();
 			OnItemUnequip?.Invoke(_equipItem);
 			_equipItem = null;
 		}
-
 
 		#region Save/Load
 

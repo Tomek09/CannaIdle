@@ -36,7 +36,10 @@ namespace Gameplay.Plots {
 		}
 
 		private void OnMouseButtonDown(Vector3 worldPosition) {
-			if (!ActivePlot.TileGrid.TryGet(worldPosition + MOUSE_OFFSET, out PlotTile tile)) return;
+			if (!ActivePlot.TileGrid.TryGet(worldPosition + MOUSE_OFFSET, out PlotTile tile)) {
+				return;
+			}
+
 			OnPlotTileMouseDown?.Invoke(tile);
 		}
 
@@ -72,8 +75,9 @@ namespace Gameplay.Plots {
 				Plot plot = GetPlot(savePlot.index);
 				Tools.Grid<PlotTile> tileGrid = plot.TileGrid;
 				foreach (Game.Save.SavePlotTile savePlotTile in savePlot.tiles) {
-					if (!tileGrid.TryGet(savePlotTile.x, savePlotTile.y, out PlotTile tile)) continue;
-					tile.Load(savePlotTile);
+					if (tileGrid.TryGet(savePlotTile.x, savePlotTile.y, out PlotTile tile)) {
+						tile.Load(savePlotTile);
+					}
 				}
 			}
 		}
