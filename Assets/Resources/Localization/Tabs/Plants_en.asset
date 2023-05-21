@@ -17,7 +17,19 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: d691822496e3131498c308ba802aa282, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 63804006400
+    m_Localized: Aconite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 794028138496
+    m_Localized: Aloe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 925209190400
+    m_Localized: Belladonna
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: Plants Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: Plants
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: d691822496e3131498c308ba802aa282
+  m_Entries:
+  - m_Id: 63804006400
+    m_Key: plant_aconite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 794028138496
+    m_Key: plant_aloe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 925209190400
+    m_Key: plant_belladonna
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

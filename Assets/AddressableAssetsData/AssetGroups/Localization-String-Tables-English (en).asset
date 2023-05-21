@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: bb70eca5f7c498943a9d6581c81234af
   m_SerializeEntries:
-  - m_GUID: 95c2198f142ce654aba7faef5c31d055
-    m_Address: New Table_en
+  - m_GUID: a12f2da6c1d892748aaa39cfe91366a6
+    m_Address: Plants_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
