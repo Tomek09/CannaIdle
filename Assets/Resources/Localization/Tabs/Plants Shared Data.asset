@@ -16,15 +16,19 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: d691822496e3131498c308ba802aa282
   m_Entries:
   - m_Id: 63804006400
-    m_Key: plant_aconite
+    m_Key: item_aconite
     m_Metadata:
       m_Items: []
   - m_Id: 794028138496
-    m_Key: plant_aloe
+    m_Key: item_aloe
     m_Metadata:
       m_Items: []
   - m_Id: 925209190400
-    m_Key: plant_belladonna
+    m_Key: item_aloeBag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 124890732814336
+    m_Key: New Entry
     m_Metadata:
       m_Items: []
   m_Metadata:

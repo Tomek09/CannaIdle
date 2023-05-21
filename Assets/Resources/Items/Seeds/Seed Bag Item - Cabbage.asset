@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
   m_Name: Seed Bag Item - Cabbage
   m_EditorClassIdentifier: 
-  itemCode: item_cabbage
+  itemCode: item_cabbageBag
   icon: {fileID: 21300000, guid: 37e382adcb0afa245a0044d86c14dc6d, type: 3}
   itemCategory: 0
   plantPreset: {fileID: 11400000, guid: 66826305b0aa2e845b0fe390081f62fb, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
   m_Name: Seed Bag Item - Sea Buckthorn
   m_EditorClassIdentifier: 
-  itemCode: item_seabuckthorn
+  itemCode: item_seabuckthornBag
   icon: {fileID: 21300000, guid: cd53a878bd0889b4ea20e110aa9d14c6, type: 3}
   itemCategory: 0
   plantPreset: {fileID: 11400000, guid: b8ad21c45ee2a2243a48c9547a8d0193, type: 2}

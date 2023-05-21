@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,20 +29,24 @@ namespace Gameplay.Shops.UI {
 			RefreshUI();
 		}
 
+		public ShopOffer GetShopOffer() {
+			return _offer;
+		}
+
 		private void OnBuyButton() {
-			if (!Inventory.InventoryManager.instance.ContainsCoins(_cost)) {
+			if (!ShopManager.instance.TryBuyOffer(_offer)) {
 				return;
 			}
 
-			Inventory.InventoryManager.instance.AddItem(_offer.itemPreset, 1);
-			Inventory.InventoryManager.instance.RemoveCoins(_cost);
+			transform.DOKill();
+			transform.localScale = Vector3.one * 1.1f;
+			transform.DOScale(Vector3.one, .125f);
 		}
 
-		private void RefreshUI() {
+		public void RefreshUI() {
 			_icon.sprite = _offer.itemPreset.icon;
-			_name.text = _offer.itemPreset.itemCode;
+			_name.text = Game.Localization.LocalizationManager.instance.GetEntry(Game.Localization.TableType.Plants, _offer.itemPreset.itemCode);
 			_quantity.text = string.Format("x{0}", _offer.quantity);
-
 			_buyText.text = string.Format("<sprite=0> {0}", _cost);
 		}
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
   m_Name: Seed Bag Item - Gerbera
   m_EditorClassIdentifier: 
-  itemCode: item_gerbera
+  itemCode: item_gerberaBag
   icon: {fileID: 21300000, guid: 25f654943d3d18342af884b77544d35c, type: 3}
   itemCategory: 0
   plantPreset: {fileID: 11400000, guid: fe6b99aa3bbbc0e4390825bfa42e8355, type: 2}

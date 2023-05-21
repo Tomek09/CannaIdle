@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
   m_Name: Seed Bag Item - Daffodil
   m_EditorClassIdentifier: 
-  itemCode: item_daffodil
+  itemCode: item_daffodilBag
   icon: {fileID: 21300000, guid: ff5d82f730ed3ba44b9284721bb276d7, type: 3}
   itemCategory: 0
   plantPreset: {fileID: 11400000, guid: c344711f0e6e8504ba742274aa7a8a13, type: 2}

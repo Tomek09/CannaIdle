@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
   m_Name: Seed Bag Item - Belladonna
   m_EditorClassIdentifier: 
-  itemCode: item_belladonna
+  itemCode: item_belladonnaBag
   icon: {fileID: 21300000, guid: b4867707e3aef86458b47b6892c0e9ac, type: 3}
   itemCategory: 0
   plantPreset: {fileID: 11400000, guid: fd25e0d65786c744f9ce78b6900c6e03, type: 2}

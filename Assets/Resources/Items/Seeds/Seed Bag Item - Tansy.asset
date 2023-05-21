@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee3b18817f4a248a5aaeb5998aedf8, type: 3}
   m_Name: Seed Bag Item - Tansy
   m_EditorClassIdentifier: 
-  itemCode: item_tansy
+  itemCode: item_tansyBag
   icon: {fileID: 21300000, guid: 916d4080a6fa6a746b5dbf55b0c61b37, type: 3}
   itemCategory: 0
   plantPreset: {fileID: 11400000, guid: 18e5aadc8727a2c42b862216f43b9d1e, type: 2}

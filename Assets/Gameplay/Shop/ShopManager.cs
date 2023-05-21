@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Tools;
 using UnityEngine;
+using UnityEngine.Localization.SmartFormat.Utilities;
 
 namespace Gameplay.Shops {
 	public class ShopManager : Singleton<ShopManager> {
@@ -12,15 +14,19 @@ namespace Gameplay.Shops {
 
 
 		public static System.Action<ShopOffer[]> OnOffersGenerate;
+		public static System.Action<ShopOffer> OnOfferModify;
 
 		private protected override void Awake() {
 			base.Awake();
 			_currentOffers = new ShopOffer[TOTAL_OFFERS_PER_DAY];
 		}
 
+		private void Start() {
+			GenerateShopOffers();
+		}
 
 		private void GenerateShopOffers() {
-			List<Items.ItemPreset> allItems = Items.ItemsManager.instance.GetAllItems();
+			List<Items.ItemPreset> allItems = Items.ItemsManager.instance.GetAllItems(Items.ItemCategory.Seeds);
 			for (int i = 0; i < TOTAL_OFFERS_PER_DAY; i++) {
 				Items.ItemPreset itemPreset = allItems.GetRandom();
 				allItems.Remove(itemPreset);
@@ -29,6 +35,21 @@ namespace Gameplay.Shops {
 			}
 
 			OnOffersGenerate?.Invoke(_currentOffers);
+		}
+
+		public bool TryBuyOffer(ShopOffer shopOffer) {
+			int cost = 0;
+			if (!Inventory.InventoryManager.instance.ContainsCoins(cost)) {
+				return false;
+			}
+
+			Inventory.InventoryManager.instance.RemoveCoins(cost);
+			Inventory.InventoryManager.instance.AddItem(shopOffer.itemPreset, 1);
+			shopOffer.quantity = Mathf.Clamp(shopOffer.quantity - 1, 0, int.MaxValue);
+
+			OnOfferModify.Invoke(shopOffer);
+
+			return true;
 		}
 	}
 }
