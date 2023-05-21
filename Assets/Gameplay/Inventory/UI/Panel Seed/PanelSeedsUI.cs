@@ -22,7 +22,7 @@ namespace Gameplay.Inventory.UI.Seeds {
 		[Header("Info")]
 		private bool _isHidden = true;
 		private int _currentTab = 0; 
-		private int _maxTabs = 0;
+		private int _maxSeedsTabs = 0;
 		private Items.ItemPreset[] _items = null;
 		private Dictionary<Items.ItemPreset, InventoryItem> _seedsItems = null;
 
@@ -56,7 +56,7 @@ namespace Gameplay.Inventory.UI.Seeds {
 		}
 
 		private void OnChangeNavigation(int dir) {
-			_currentTab = Mathf.Clamp(_currentTab + dir, 0, _maxTabs);
+			_currentTab = Mathf.Clamp(_currentTab + dir, 0, _maxSeedsTabs);
 			RefreshTab();
 		}
 
@@ -73,7 +73,8 @@ namespace Gameplay.Inventory.UI.Seeds {
 				_seedsItems.Add(itemPreset, new InventoryItem(itemPreset));
 			}
 
-			_maxTabs = Mathf.CeilToInt(seedsItems.Count / TOTAL_ITEMS_PER_TAB) - 1;
+			float totalSeeds = seedsItems.Count / (float)TOTAL_ITEMS_PER_TAB;
+			_maxSeedsTabs = Mathf.FloorToInt(totalSeeds);
 		}
 
 		private void ChangeHide() {
