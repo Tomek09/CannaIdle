@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_eledoneBag
   icon: {fileID: 21300000, guid: 5e51a25eda7d6734f9bfeeaafe0152a4, type: 3}
   itemCategory: 0
+  displayName: Eledone
   plantPreset: {fileID: 11400000, guid: 971b0f65632d1f64f8154e0e3499b9a0, type: 2}

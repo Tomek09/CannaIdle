@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_hopBag
   icon: {fileID: 21300000, guid: 1247602b916875b49999f1b3bd68cc5f, type: 3}
   itemCategory: 0
+  displayName: Hop
   plantPreset: {fileID: 11400000, guid: 7e48da7eacdb6164099dae0e40689b75, type: 2}

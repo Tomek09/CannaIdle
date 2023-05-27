@@ -6,6 +6,7 @@ namespace Gameplay.Plots.Plants {
 
 		public string plantCode = "plant_";
 		public GrowthStage[] growthStages = null;
+		public int collectCoin;
 
 		public GrowthStage GetGrowthStage(int stageIndex) {
 			int index = Mathf.Clamp(stageIndex, 0, growthStages.Length - 1);

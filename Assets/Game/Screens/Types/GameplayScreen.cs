@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.Screens {
 	public class GameplayScreen : ScreenBase {
 
+		[Header("Buttons")]
+		[SerializeField] private Button _shopButton = null;
+
 		public override ScreenType GetScreenType() => ScreenType.Gameplay;
 
-		private void Update() {
-			if (!_isActive) {
-				return;
-			}
+		public override void OnInitialize() {
+			_shopButton.onClick.AddListener(OnShopButton);
+		}
 
-			if (Input.GetKeyDown(KeyCode.Q)) {
-				ScreenManager.instance.ChangeScreen(ScreenType.Shop);
-			}
+		private void OnShopButton() {
+			ScreenManager.instance.ChangeScreen(ScreenType.Shop);
 		}
 	}
 }

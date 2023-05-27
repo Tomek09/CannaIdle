@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_lavenderBag
   icon: {fileID: 21300000, guid: e5923b3f25a7808408ec453108f9b33f, type: 3}
   itemCategory: 0
+  displayName: Lavender
   plantPreset: {fileID: 11400000, guid: a3095aa46e3757648b442350911b6d1b, type: 2}

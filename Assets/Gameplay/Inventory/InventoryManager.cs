@@ -115,14 +115,14 @@ namespace Gameplay.Inventory {
 
 
 		public bool ContainsCoins(int total) {
-			return total >= _totalCoins;
+			return _totalCoins >= total;
 		}
 
 		#region Save/Load
 
 		private void OnGameSave(Game.Save.GameData gameData) {
 			Game.Save.SaveInventory saveInventory = new Game.Save.SaveInventory() {
-				coins = 0,
+				coins = _totalCoins,
 				inventoryItems = new Game.Save.SaveItem[_currentItems.Keys.Count]
 			};
 

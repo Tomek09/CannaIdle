@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +18,6 @@ namespace Gameplay.Shops.UI {
 
 		[Header("Info")]
 		private ShopOffer _offer = null;
-		private int _cost = 0;
 
 		public void Initialize() {
 			_buyButton.onClick.AddListener(OnBuyButton);
@@ -25,12 +25,7 @@ namespace Gameplay.Shops.UI {
 
 		public void SetOffer(ShopOffer offer) {
 			_offer = offer;
-			_cost = 0;
 			RefreshUI();
-		}
-
-		public ShopOffer GetShopOffer() {
-			return _offer;
 		}
 
 		private void OnBuyButton() {
@@ -44,10 +39,10 @@ namespace Gameplay.Shops.UI {
 		}
 
 		public void RefreshUI() {
-			_icon.sprite = _offer.itemPreset.icon;
-			_name.text = _offer.itemPreset.itemCode;
+			_icon.sprite = _offer.shopItem.item.icon;
+			_name.text = _offer.shopItem.item.displayName;
 			//_quantity.text = string.Format("x{0}", _offer.quantity);
-			_priceText.text = string.Format("<sprite=0> {0}", _cost);
+			_priceText.text = string.Format("<sprite=0> {0}", _offer.shopItem.cost);
 		}
 
 	}

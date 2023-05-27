@@ -3,12 +3,12 @@ using UnityEngine;
 namespace Gameplay.Shops {
     [System.Serializable]
     public class ShopOffer {
-        public Items.ItemPreset itemPreset;
+        public Items.ShopItem shopItem;
         public int quantity;
 
-        public ShopOffer(Items.ItemPreset itemPreset) {
-            this.itemPreset = itemPreset;
-            quantity = 999;
+        public ShopOffer(Items.ShopItem shopItem, int quantity) {
+            this.shopItem = shopItem;
+            this.quantity = quantity;
         }
     }
 }

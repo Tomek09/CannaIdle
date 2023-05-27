@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_aconiteBag
   icon: {fileID: 21300000, guid: 1797a1e6221cd6a4694e3933f4f91e60, type: 3}
   itemCategory: 0
+  displayName: Aconite
   plantPreset: {fileID: 11400000, guid: 45fff3bebe7b5b441aaf9a49ad9c0d7b, type: 2}

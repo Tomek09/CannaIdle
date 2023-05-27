@@ -7,6 +7,7 @@ namespace Gameplay.Items {
         public string itemCode = "item_";
         public Sprite icon;
         public ItemCategory itemCategory;
+        public string displayName = "[TODO]";
 
 		public abstract void OnEquip();
         public abstract void OnUnequip();

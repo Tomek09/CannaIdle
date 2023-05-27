@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_gerberaBag
   icon: {fileID: 21300000, guid: 25f654943d3d18342af884b77544d35c, type: 3}
   itemCategory: 0
+  displayName: Gerbera
   plantPreset: {fileID: 11400000, guid: fe6b99aa3bbbc0e4390825bfa42e8355, type: 2}

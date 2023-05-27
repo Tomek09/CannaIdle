@@ -37,6 +37,10 @@ namespace Gameplay.Plots.Plants {
 			Game.GameManager.OnGameTick += OnGameTick;
 		}
 
+		public void Collect() {
+			Inventory.InventoryManager.instance.AddCoins(_preset.collectCoin);
+		}
+
 		public void RemovePlant() {
 			_preset = null;
 			_plantSprite.sprite = null;

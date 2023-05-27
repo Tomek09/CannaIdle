@@ -11,6 +11,8 @@ namespace Gameplay.Items {
 		private Dictionary<string, ItemPreset> _presets = null;
 		private List<ItemPreset> _allPresets = null;
 
+		private List<ShopItem> _allshopItems = null;
+
 		private protected override void Awake() {
 			base.Awake();
 
@@ -26,6 +28,10 @@ namespace Gameplay.Items {
 				_presets.Add(preset.itemCode, preset);
 				_allPresets.Add(preset);
 			}
+
+			ShopItem[] shopItems = Resources.LoadAll<ShopItem>("Shop Items");
+			_allshopItems = new List<ShopItem>();
+			_allshopItems.AddRange(shopItems);
 		}
 
 		public ItemPreset GetItem(string itemCode) {
@@ -60,5 +66,9 @@ namespace Gameplay.Items {
 			}
 			return items;
 		}
+
+
+		public List<ShopItem> GetAllShopItems() => _allshopItems;
+
 	}
 }

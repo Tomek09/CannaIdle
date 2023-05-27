@@ -26,3 +26,4 @@ MonoBehaviour:
     duration: 5
   - icon: {fileID: 21300000, guid: e26a856c1ed460e4ea06a515c7e8cc37, type: 3}
     duration: 0
+  collectCoin: 15

@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_nettleBag
   icon: {fileID: 21300000, guid: a5eacf9382f622b4ebccd9d3b31b696b, type: 3}
   itemCategory: 0
+  displayName: Nettle
   plantPreset: {fileID: 11400000, guid: 229338ea67a3da74094cca3de3001b29, type: 2}

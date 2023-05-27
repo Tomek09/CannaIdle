@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCode: item_aloeBag
   icon: {fileID: 21300000, guid: 262d4883e5aed1b419a4af8279f091a2, type: 3}
+  itemCategory: 0
+  displayName: Aloe
   plantPreset: {fileID: 11400000, guid: 04e59f3488f782944a09a7bf3e826fba, type: 2}

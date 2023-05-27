@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_daffodilBag
   icon: {fileID: 21300000, guid: ff5d82f730ed3ba44b9284721bb276d7, type: 3}
   itemCategory: 0
+  displayName: Daffodil
   plantPreset: {fileID: 11400000, guid: c344711f0e6e8504ba742274aa7a8a13, type: 2}

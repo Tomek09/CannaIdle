@@ -15,4 +15,5 @@ MonoBehaviour:
   itemCode: item_seabuckthornBag
   icon: {fileID: 21300000, guid: cd53a878bd0889b4ea20e110aa9d14c6, type: 3}
   itemCategory: 0
+  displayName: Sea Buckthorn
   plantPreset: {fileID: 11400000, guid: b8ad21c45ee2a2243a48c9547a8d0193, type: 2}

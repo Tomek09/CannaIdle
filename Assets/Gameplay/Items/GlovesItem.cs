@@ -21,6 +21,7 @@ namespace Gameplay.Items {
 				return;
 			}
 
+			tile.Plant.Collect();
 			tile.Plant.RemovePlant();
 		}
 	}
