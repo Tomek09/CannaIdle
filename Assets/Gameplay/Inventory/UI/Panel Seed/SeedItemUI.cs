@@ -31,7 +31,7 @@ namespace Gameplay.Inventory.UI.Seeds {
 			_containerGO.SetActive(true);
 
 			_icon.sprite = inventoryItem.itemPreset.icon;
-			_name.text = Game.Localization.LocalizationManager.instance.GetEntry(Game.Localization.TableType.Plants, inventoryItem.itemPreset.itemCode);
+			_name.text = inventoryItem.itemPreset.itemCode;
 			SetQuantity(inventoryItem.quantity);
 		}
 

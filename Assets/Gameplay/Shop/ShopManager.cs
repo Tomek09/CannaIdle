@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
 using Tools;
 using UnityEngine;
-using UnityEngine.Localization.SmartFormat.Utilities;
+using System.Collections.Generic;
 
 namespace Gameplay.Shops {
 	public class ShopManager : Singleton<ShopManager> {

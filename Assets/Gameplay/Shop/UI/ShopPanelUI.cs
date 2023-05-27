@@ -45,7 +45,7 @@ namespace Gameplay.Shops.UI {
 
 		public void RefreshUI() {
 			_icon.sprite = _offer.itemPreset.icon;
-			_name.text = Game.Localization.LocalizationManager.instance.GetEntry(Game.Localization.TableType.Plants, _offer.itemPreset.itemCode);
+			_name.text = _offer.itemPreset.itemCode;
 			//_quantity.text = string.Format("x{0}", _offer.quantity);
 			_priceText.text = string.Format("<sprite=0> {0}", _cost);
 		}
