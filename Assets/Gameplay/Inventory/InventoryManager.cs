@@ -16,6 +16,10 @@ namespace Gameplay.Inventory {
 		public static System.Action<InventoryItem> OnItemQuantityChange;
 		public static System.Action<Items.ItemPreset> OnItemRemove;
 
+		public static System.Action<int> OnCoinAdd;
+		public static System.Action<int> OnCoinModify;
+		public static System.Action<int> OnCoinRemove;
+
 
 		private void OnEnable() {
 			Game.Save.SaveManager.OnGameSave += OnGameSave;
@@ -93,15 +97,20 @@ namespace Gameplay.Inventory {
 
 
 		public void AddCoins(int amount) {
-			ModifyCoins(_totalCoins + Mathf.Abs(amount));
+			int newValue = Mathf.Abs(amount);
+			ModifyCoins(_totalCoins + newValue);
+			OnCoinAdd?.Invoke(newValue);
 		}
 
 		public void RemoveCoins(int amount) {
-			ModifyCoins(_totalCoins - Mathf.Abs(amount));
+			int newValue = Mathf.Abs(amount);
+			ModifyCoins(_totalCoins - newValue);
+			OnCoinRemove?.Invoke(newValue);
 		}
 
 		private void ModifyCoins(int newAmount) {
 			_totalCoins = Mathf.Clamp(newAmount, 0, int.MaxValue);
+			OnCoinModify?.Invoke(newAmount);
 		}
 
 
@@ -127,11 +136,14 @@ namespace Gameplay.Inventory {
 		}
 
 		private void OnGameLoad(Game.Save.GameData gameData) {
+			ModifyCoins(gameData.inventory.coins);
+
 			foreach (Game.Save.SaveItem item in gameData.inventory.inventoryItems) {
 				if (Items.ItemsManager.instance.TryGetItem(item.itemCode, out Items.ItemPreset itemPreset)) {
 					AddItem(itemPreset, item.quantity);
 				}
 			}
+
 		}
 
 		#endregion

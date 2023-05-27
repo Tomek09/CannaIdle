@@ -12,8 +12,8 @@ namespace Gameplay.Shops.UI {
 		[Header("Components")]
 		[SerializeField] private Image _icon = null;
 		[SerializeField] private TMP_Text _name = null;
-		[SerializeField] private TMP_Text _quantity = null;
-		[SerializeField] private TMP_Text _buyText = null;
+		//[SerializeField] private TMP_Text _quantity = null;
+		[SerializeField] private TMP_Text _priceText = null;
 
 		[Header("Info")]
 		private ShopOffer _offer = null;
@@ -46,8 +46,8 @@ namespace Gameplay.Shops.UI {
 		public void RefreshUI() {
 			_icon.sprite = _offer.itemPreset.icon;
 			_name.text = Game.Localization.LocalizationManager.instance.GetEntry(Game.Localization.TableType.Plants, _offer.itemPreset.itemCode);
-			_quantity.text = string.Format("x{0}", _offer.quantity);
-			_buyText.text = string.Format("<sprite=0> {0}", _cost);
+			//_quantity.text = string.Format("x{0}", _offer.quantity);
+			_priceText.text = string.Format("<sprite=0> {0}", _cost);
 		}
 
 	}

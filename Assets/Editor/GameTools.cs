@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
 using System.Collections.Generic;
+using Gameplay.Items;
 
 namespace Game {
 	public class GameTools : EditorWindow {
@@ -29,6 +30,10 @@ namespace Game {
 
 			GUILayout.Label("Items");
 			DrawItems();
+
+			if (GUILayout.Button("+ Coin", GUILayout.ExpandWidth(true), GUILayout.MinWidth((position.width / 2) - 10))) {
+				Gameplay.Inventory.InventoryManager.instance.AddCoins(1);
+			}
 
 			GUILayout.EndVertical();
 		}
