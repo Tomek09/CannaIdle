@@ -3,9 +3,8 @@ using UnityEngine;
 namespace Gameplay.Items {
 	public class ShopItem : ScriptableObject {
 
-        public ItemPreset item;
-        public int cost;
-
+		public ItemPreset item;
+		public int cost;
 
 
 #if UNITY_EDITOR
@@ -25,7 +24,7 @@ namespace Gameplay.Items {
 
 			ShopItem shopItem = UnityEditor.ObjectFactory.CreateInstance<ShopItem>();
 
-			if(itemPreset != null) {
+			if (itemPreset != null) {
 				shopItem.item = itemPreset;
 			}
 
@@ -34,7 +33,8 @@ namespace Gameplay.Items {
 
 			UnityEditor.Selection.activeObject = shopItem;
 
-#endif
 		}
+#endif
+
 	}
 }
