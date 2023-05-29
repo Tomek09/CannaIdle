@@ -1,6 +1,4 @@
-using System;
 using TMPro;
-using UnityEditor.Localization;
 using UnityEngine;
 using UnityEngine.UI;
 
