@@ -16,6 +16,11 @@ namespace Gameplay.Inventory.UI.Seeds {
 		[SerializeField] private Button _leftNavArrow;
 		[SerializeField] private Button _rightNavArrow;
 
+		[Header("Header")]
+		[SerializeField] private Image _headerIcon = null;
+		[SerializeField] private Sprite _openSprite = null;
+		[SerializeField] private Sprite _closeSprite = null;
+
 		[Header("Values")]
 		[SerializeField] private SeedItemUI[] _currentItemUI = null;
 
@@ -48,6 +53,8 @@ namespace Gameplay.Inventory.UI.Seeds {
 			_leftNavArrow.onClick.AddListener(() => OnChangeNavigation(-1));
 			_rightNavArrow.onClick.AddListener(() => OnChangeNavigation(1));
 
+			SetHeaderIcon(true);
+
 			InitializeUI();
 		}
 
@@ -79,6 +86,7 @@ namespace Gameplay.Inventory.UI.Seeds {
 
 		private void ChangeHide() {
 			_isHidden = !_isHidden;
+			SetHeaderIcon(_isHidden);
 			float desination = _isHidden ? 100f : 500f;
 
 			_rectTransform.DOKill();
@@ -104,6 +112,10 @@ namespace Gameplay.Inventory.UI.Seeds {
 					_currentItemUI[slotIndex].OnItemEquip();
 				}
 			}
+		}
+
+		private void SetHeaderIcon(bool isEnable) {
+			_headerIcon.sprite = isEnable? _openSprite: _closeSprite;
 		}
 
 		#endregion

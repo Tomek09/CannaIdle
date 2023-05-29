@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using NUnit.Framework;
 using System.Collections.Generic;
-using Gameplay.Items;
 
 namespace Game {
 	public class GameTools : EditorWindow {
@@ -28,17 +26,14 @@ namespace Game {
 			GUILayout.BeginVertical("box");
 			GUILayout.Label("Inventory");
 
-			GUILayout.Label("Items");
 			DrawItems();
-
-			if (GUILayout.Button("+ Coin", GUILayout.ExpandWidth(true), GUILayout.MinWidth((position.width / 2) - 10))) {
-				Gameplay.Inventory.InventoryManager.instance.AddCoins(1);
-			}
+			DrawCoins();
 
 			GUILayout.EndVertical();
 		}
 
 		private void DrawItems() {
+			GUILayout.Label("Items");
 			GUILayout.BeginVertical();
 
 			List<Gameplay.Items.ItemPreset> allPresets = Gameplay.Items.ItemsManager.instance.GetAllItems();
@@ -65,6 +60,30 @@ namespace Game {
 				if (GUILayout.Button(string.Format("{0}", itemPreset.itemCode), GUILayout.ExpandWidth(true), GUILayout.MinWidth((position.width / 2) - 10))) {
 					Gameplay.Inventory.InventoryManager.instance.AddItem(itemPreset, 1);
 				}
+			}
+		}
+
+		private void DrawCoins() {
+			GUILayout.Label("Items");
+
+			ModifyCoin(true, 0, 1, 2, 5, 10, 10, 25, 50, 100);
+			ModifyCoin(false, 0, 1, 2, 5, 10, 10, 25, 50, 100);
+
+			static void ModifyCoin(bool isIncrease, params int[] totalCoins) {
+				GUILayout.BeginHorizontal();
+				GUILayout.FlexibleSpace();
+				for (int i = 0; i < totalCoins.Length; i++) {
+					string name = string.Format("{0} {1}", isIncrease ? "+" : "-", totalCoins[i]);
+					if (GUILayout.Button(name, GUILayout.MinWidth(40))) {
+						if (isIncrease) {
+							Gameplay.Inventory.InventoryManager.instance.AddCoins(totalCoins[i]);
+						} else {
+							Gameplay.Inventory.InventoryManager.instance.RemoveCoins(totalCoins[i]);
+						}
+					}
+				}
+				GUILayout.FlexibleSpace();
+				GUILayout.EndHorizontal();
 			}
 		}
 
