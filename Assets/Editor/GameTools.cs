@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 namespace Game {
 	public class GameTools : EditorWindow {
@@ -57,8 +58,17 @@ namespace Game {
 			GUILayout.EndVertical();
 
 			void AddItem(Gameplay.Items.ItemPreset itemPreset) {
-				if (GUILayout.Button(string.Format("{0}", itemPreset.itemCode), GUILayout.ExpandWidth(true), GUILayout.MinWidth((position.width / 2) - 10))) {
-					Gameplay.Inventory.InventoryManager.instance.AddItem(itemPreset, 1);
+				float width = (position.width / 2) -10;
+				GUILayout.BeginHorizontal("box", GUILayout.ExpandWidth(true), GUILayout.MinWidth(width));
+				GUILayout.Label(string.Format("{0}", itemPreset.itemCode), new GUIStyle(EditorStyles.boldLabel));
+				AddItem(1);
+				AddItem(5);
+				GUILayout.EndHorizontal();
+
+				void AddItem(int quantity) {
+					if (GUILayout.Button(string.Format("+{0}", quantity), GUILayout.Width(30))) {
+						Gameplay.Inventory.InventoryManager.instance.AddItem(itemPreset, quantity);
+					}
 				}
 			}
 		}
