@@ -396,10 +396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1cc38357429b247bf6b1da20b1ad99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buyButton: {fileID: 8251270956464715105}
+  _rectPanel: {fileID: 948694797119076482}
   _icon: {fileID: 3580068145622444805}
   _name: {fileID: 21751593784856600}
   _priceText: {fileID: 1257644347800901113}
+  _buyButton: {fileID: 8251270956464715105}
 --- !u!1 &4172025436891744386
 GameObject:
   m_ObjectHideFlags: 0

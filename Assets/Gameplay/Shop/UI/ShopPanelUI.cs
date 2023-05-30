@@ -2,19 +2,21 @@ using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 using UnityEngine.UI;
 
 namespace Gameplay.Shops.UI {
 	public class ShopPanelUI : MonoBehaviour {
 
-		[Header("Buttons")]
-		[SerializeField] private Button _buyButton = null;
-
 		[Header("Components")]
+		[SerializeField] private RectTransform _rectPanel = null;
 		[SerializeField] private Image _icon = null;
 		[SerializeField] private TMP_Text _name = null;
-		//[SerializeField] private TMP_Text _quantity = null;
 		[SerializeField] private TMP_Text _priceText = null;
+		//[SerializeField] private TMP_Text _quantity = null;
+
+		[Header("Buttons")]
+		[SerializeField] private Button _buyButton = null;
 
 		[Header("Info")]
 		private ShopOffer _offer = null;
@@ -33,16 +35,18 @@ namespace Gameplay.Shops.UI {
 				return;
 			}
 
-			transform.DOKill();
-			transform.localScale = Vector3.one * 1.1f;
-			transform.DOScale(Vector3.one, .125f);
+			_rectPanel.DOKill();
+			_rectPanel.localScale = Vector3.one * 1.1f;
+			_rectPanel.DOScale(Vector3.one, .125f);
+
+			Global.UI.FloatingTextManager.instance.CreateFloatingText(_rectPanel.position, new Global.UI.FloatingTextSettings("[TODO]", Color.black, .5f, .75f, true));
 		}
 
 		public void RefreshUI() {
 			_icon.sprite = _offer.shopItem.item.icon;
 			_name.text = _offer.shopItem.item.displayName;
-			//_quantity.text = string.Format("x{0}", _offer.quantity);
 			_priceText.text = string.Format("<sprite=0> {0}", _offer.shopItem.cost);
+			//_quantity.text = string.Format("x{0}", _offer.quantity);
 		}
 
 	}
