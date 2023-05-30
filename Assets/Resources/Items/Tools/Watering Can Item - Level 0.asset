@@ -15,3 +15,5 @@ MonoBehaviour:
   itemCode: item_wateringCan_0
   icon: {fileID: 21300000, guid: 0e872a043c8415f4ba7512440a60ab86, type: 3}
   itemCategory: 1
+  displayName: '[TODO]'
+  _wetDuration: 60
