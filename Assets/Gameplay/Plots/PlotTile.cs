@@ -25,7 +25,7 @@ namespace Gameplay.Plots {
 			_y = y;
 
 			_patch.Initialize(this);
-			_plant.Initialize(this);
+			_plant.Initialize();
 		}
 
 		#region Save/Load

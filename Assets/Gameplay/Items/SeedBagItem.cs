@@ -10,13 +10,13 @@ namespace Gameplay.Items {
 		public override void OnEquip() {
 			Plots.PlotsManager.OnPlotTileMouseDown += OnPlotTileMouseDown;
 		}
-		
+
 		public override void OnUnequip() {
 			Plots.PlotsManager.OnPlotTileMouseDown -= OnPlotTileMouseDown;
 		}
 
 		private void OnPlotTileMouseDown(Plots.PlotTile tile) {
-			if (tile.Plant.GetPlantPreset() != null) {
+			if (!tile.Plant.CanPlant()) {
 				return;
 			}
 
