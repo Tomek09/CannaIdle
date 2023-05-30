@@ -1,8 +1,8 @@
 using UnityEngine;
 
 namespace Gameplay.Items {
-    [CreateAssetMenu(fileName = "Gloves Item - ", menuName = "SO/Items/Gloves Bag")]
-    public class GlovesItem : ItemPreset {
+	[CreateAssetMenu(fileName = "Gloves Item - ", menuName = "SO/Items/Gloves Bag")]
+	public class GlovesItem : ItemPreset {
 
 		public override void OnEquip() {
 			Plots.PlotsManager.OnPlotTileMouseDown += OnPlotTileMouseDown;
