@@ -1,19 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gameplay.Shops.UI {
-    public class ShopManagerUI : MonoBehaviour {
+	public class ShopManagerUI : MonoBehaviour {
+
+		private const int MAX_OFFERS_PER_PAGE = 3;
 
 		[Header("Components")]
 		[SerializeField] private ShopPanelUI[] _panels = null;
+		private List<ShopOffer> _currentOffers = null;
 
 		private void OnEnable() {
-			ShopManager.OnOffersGenerate += SetShopOffers;
-			ShopManager.OnOfferModify += RefreshOffer;
+			ShopManager.OnOffersGenerate += OnOffersGenerate;
 		}
 
 		private void OnDisable() {
-			ShopManager.OnOffersGenerate -= SetShopOffers;
-			ShopManager.OnOfferModify -= RefreshOffer;
+			ShopManager.OnOffersGenerate -= OnOffersGenerate;
 		}
 
 		private void Start() {
@@ -22,16 +25,22 @@ namespace Gameplay.Shops.UI {
 			}
 		}
 
-		private void SetShopOffers(ShopOffer[] offers) {
-			for (int i = 0; i < offers.Length; i++) {
-				_panels[i].SetOffer(offers[i]);
+		public void OpenPage(int page) {
+			int startIndex = page * MAX_OFFERS_PER_PAGE;
+			for (int i = 0; i < MAX_OFFERS_PER_PAGE; i++) {
+				if (startIndex + i < 0 || startIndex + i >= _currentOffers.Count) {
+					_panels[i].gameObject.SetActive(false);
+					continue;
+				}
+				_panels[i].gameObject.SetActive(true);
+				_panels[i].SetOffer(_currentOffers[startIndex + i]);
 			}
 		}
 
-		private void RefreshOffer(ShopOffer offer) {
-			for (int i = 0; i < _panels.Length; i++) {
-				_panels[i].RefreshUI();
-			}
+
+		private void OnOffersGenerate(List<ShopOffer> shopOffers) {
+			_currentOffers = shopOffers;
 		}
+
 	}
 }
