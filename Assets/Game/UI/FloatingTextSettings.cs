@@ -6,18 +6,16 @@ namespace Global.UI {
 		public string text;
 		public Color color;
 
-		public float displayDuration;
-		public float fadeDuration;
 		public bool randomizePosition;
+		public int randomizePositionPower;
 
 
-		public FloatingTextSettings(string text, Color color, float displayDuration, float fadeDuration, bool randomizePosition) {
+		public FloatingTextSettings(string text, Color color, bool randomizePosition, int randomizePositionPower = 50) {
 			this.text = text;
 			this.color = color;
 
-			this.displayDuration = displayDuration;
-			this.fadeDuration = fadeDuration;
 			this.randomizePosition = randomizePosition;
+			this.randomizePositionPower = randomizePositionPower;
 		}
 
 	}

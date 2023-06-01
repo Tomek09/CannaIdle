@@ -10,6 +10,9 @@ namespace Global.UI {
 		[SerializeField] private TMP_Text _textPrefab = null;
 		[SerializeField] private Transform _textParent = null;
 
+		private readonly float _displayDuration = .5f;
+		private readonly float _fadeDuration = .75f;
+
 		private protected override void Awake() {
 			base.Awake();
 			Debug.Log("[TODO] Pooling system!");
@@ -18,18 +21,18 @@ namespace Global.UI {
 		public void CreateFloatingText(Vector3 position, FloatingTextSettings settings) {
 			Vector3 spawnPosition = position;
 			if (settings.randomizePosition) {
-				Vector2 randomPoint = Random.insideUnitCircle * 2f;
+				Vector2 randomPoint = Random.insideUnitCircle * settings.randomizePositionPower;
 				spawnPosition += new Vector3(randomPoint.x, randomPoint.y);
 			}
 
 			TMP_Text text = GameObjects.GOInstantiate(_textPrefab, _textParent);
 			text.rectTransform.position = spawnPosition;
-			text.rectTransform.DOAnchorPosY(spawnPosition.y + 20, settings.fadeDuration)
-				.SetDelay(settings.displayDuration)
+			text.rectTransform.DOAnchorPosY(spawnPosition.y + 20, _fadeDuration)
+				.SetDelay(_displayDuration)
 				.SetEase(Ease.OutQuad);
 
-			text.DOFade(0f, settings.fadeDuration)
-				.SetDelay(settings.displayDuration)
+			text.DOFade(0f, _fadeDuration)
+				.SetDelay(_displayDuration)
 				.SetEase(Ease.OutQuad);
 
 			SetupTextVisual();
