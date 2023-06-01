@@ -5047,8 +5047,6 @@ MonoBehaviour:
   _background: {fileID: 6979288770536589083}
   _shopPanelCanvas: {fileID: 5427135479185449615}
   _shopManager: {fileID: 8078416349564354395}
-  _nextPageButton: {fileID: 197539737732708992}
-  _previousPageButton: {fileID: 6508282192921041667}
   _closeButton: {fileID: 7116046556740337848}
 --- !u!114 &8078416349564354395
 MonoBehaviour:
@@ -5066,6 +5064,8 @@ MonoBehaviour:
   - {fileID: 4151118375193659985}
   - {fileID: 4840191919197963858}
   - {fileID: 8123490267256567452}
+  _nextPageButton: {fileID: 197539737732708992}
+  _previousPageButton: {fileID: 6508282192921041667}
 --- !u!1 &8855578905323043428
 GameObject:
   m_ObjectHideFlags: 0

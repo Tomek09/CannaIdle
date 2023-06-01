@@ -39,7 +39,7 @@ namespace Gameplay.Shops.UI {
 			_rectPanel.localScale = Vector3.one * 1.1f;
 			_rectPanel.DOScale(Vector3.one, .125f);
 
-			Global.UI.FloatingTextManager.instance.CreateFloatingText(_rectPanel.position, new Global.UI.FloatingTextSettings("[TODO]", Color.black, .5f, .75f, true));
+			Global.UI.FloatingTextManager.instance.CreateFloatingText(_rectPanel.position, new Global.UI.FloatingTextSettings("+1", Color.black, true));
 		}
 
 		public void RefreshUI() {
