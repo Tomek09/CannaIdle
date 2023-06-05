@@ -24,7 +24,7 @@ MonoBehaviour:
     duration: 5
   - icon: {fileID: 21300000, guid: 9b07d42357727674988344cde566f94c, type: 3}
     duration: 5
-  - icon: {fileID: 21300000, guid: 9b07d42357727674988344cde566f94c, type: 3}
+  - icon: {fileID: 21300000, guid: 65c51909702e0014f983738fa246949c, type: 3}
     duration: 0
-  plantOffset: {x: 0, y: 0.394, z: 0.226}
+  plantOffset: {x: 0, y: 0, z: 0}
   collectCoin: 15

@@ -18,13 +18,13 @@ MonoBehaviour:
     duration: 5
   - icon: {fileID: 21300000, guid: 697660ef284097f4181e790110f0dc49, type: 3}
     duration: 5
+  - icon: {fileID: 21300000, guid: ebb99e975cb2cab449ecd90d07e255b0, type: 3}
+    duration: 5
   - icon: {fileID: 21300000, guid: 1e3daea1ce34be34f848ab7a8a98f076, type: 3}
     duration: 5
   - icon: {fileID: 21300000, guid: d877dec9e3d08b5478d5298a01568994, type: 3}
     duration: 5
   - icon: {fileID: 21300000, guid: 7d69c75d276b5b045b4c5a9facf54ef1, type: 3}
-    duration: 5
-  - icon: {fileID: 21300000, guid: 7d69c75d276b5b045b4c5a9facf54ef1, type: 3}
     duration: 0
-  plantOffset: {x: 0, y: 0.502, z: 0.288}
+  plantOffset: {x: 0, y: 0, z: 0}
   collectCoin: 15
