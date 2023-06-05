@@ -1,8 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Gameplay.Plots.Plants {
 	public class Plant : MonoBehaviour {
@@ -69,11 +66,14 @@ namespace Gameplay.Plots.Plants {
 			_growthDuration = duration;
 			_growthTarget = growthStage.duration;
 			_isFullyGrowth = _preset.IsFullyGrowth(growthIndex);
-
 			Sprite icon = growthStage.icon;
 
 			_plantSprite.sprite = icon;
 			_shadowSprite.sprite = icon;
+
+			_plantSprite.transform.localPosition = _preset.plantOffset;
+
+			_plantPosition	= _preset.plantOffset;
 		}
 
 		private void OnGameTick() {
@@ -87,6 +87,7 @@ namespace Gameplay.Plots.Plants {
 				GrowthUp();
 			}
 		}
+
 
 		private void GrowthUp() {
 			if (_isFullyGrowth) return;
@@ -128,6 +129,7 @@ namespace Gameplay.Plots.Plants {
 				.OnComplete(() => onComplete?.Invoke());
 		}
 
+
 		public bool CanPlant() {
 			return _preset == null && !_durningAnimation;
 		}
@@ -135,6 +137,7 @@ namespace Gameplay.Plots.Plants {
 		public PlantPreset GetPlantPreset() => _preset;
 
 		public bool IsFullyGrowth() => _isFullyGrowth;
+
 
 		#region Save/Load
 

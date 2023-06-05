@@ -5,7 +5,12 @@ namespace Gameplay.Plots.Plants {
 	public class PlantPreset : ScriptableObject {
 
 		public string plantCode = "plant_";
+
+		[Header("Settings")]
 		public GrowthStage[] growthStages = null;
+		public Vector3 plantOffset = Vector3.zero;
+
+		[Header("Values")]
 		public int collectCoin;
 
 		public GrowthStage GetGrowthStage(int stageIndex) {
